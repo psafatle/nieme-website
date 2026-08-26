@@ -147,7 +147,7 @@
       'Archive all completed onboarding operations.',
       'Summarize today\'s discussion in #customer-success.',
       'Move Vendor Security Review from Customer Portal to Platform Security.',
-      'Prepare the Q3 Board Report using last year\'s format.',
+      'Prepare the Q3 board report using last year\'s materials and current metrics.',
       'Start Sprint 12 and organize this week\'s operations.',
       'Review everything the team shipped while I was away.',
     ];

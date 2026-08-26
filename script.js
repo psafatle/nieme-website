@@ -2,6 +2,16 @@
   // Create a free Formspree or Basin endpoint and paste it here.
   const FORM_ENDPOINT = "https://formspree.io/f/xkolkqqn";
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isPortuguese = document.documentElement.lang.toLowerCase() === 'pt-br';
+  const interfaceCopy = isPortuguese
+    ? {
+        inviteSuccess: 'Você está na lista. Os convites são enviados em etapas.',
+        inviteError: 'Algo deu errado. Tente novamente em um minuto.',
+      }
+    : {
+        inviteSuccess: 'You are on the list. Invites go out in waves.',
+        inviteError: 'Something went wrong. Try again in a minute.',
+      };
 
   const initInviteForm = () => {
     const form = document.querySelector('#invite-form');
@@ -41,9 +51,9 @@
         }
 
         form.reset();
-        status.textContent = 'You are on the list. Invites go out in waves.';
+        status.textContent = interfaceCopy.inviteSuccess;
       } catch {
-        status.textContent = 'Something went wrong. Try again in a minute.';
+        status.textContent = interfaceCopy.inviteError;
       } finally {
         button.disabled = false;
       }
@@ -143,23 +153,41 @@
     const labelEls = Array.from(document.querySelectorAll('.hero-status-label'));
     if (!textEl) return;
 
-    const prompts = [
-      'Archive all completed onboarding operations.',
-      'Summarize today\'s discussion in #customer-success.',
-      'Move Vendor Security Review from Customer Portal to Platform Security.',
-      'Prepare the Q3 board report using last year\'s materials and current metrics.',
-      'Start Sprint 12 and organize this week\'s operations.',
-      'Review everything the team shipped while I was away.',
-    ];
+    const prompts = isPortuguese
+      ? [
+          'Arquive todas as operações de integração concluídas.',
+          'Resuma a discussão de hoje no #customer-success.',
+          'Mova a Revisão de Segurança do Fornecedor do Portal do Cliente para Segurança da Plataforma.',
+          'Prepare o relatório do terceiro trimestre para o conselho usando os materiais do ano passado e as métricas atuais.',
+          'Inicie o Sprint 12 e organize as operações desta semana.',
+          'Revise tudo o que a equipe entregou enquanto eu estava fora.',
+        ]
+      : [
+          'Archive all completed onboarding operations.',
+          'Summarize today\'s discussion in #customer-success.',
+          'Move Vendor Security Review from Customer Portal to Platform Security.',
+          'Prepare the Q3 board report using last year\'s materials and current metrics.',
+          'Start Sprint 12 and organize this week\'s operations.',
+          'Review everything the team shipped while I was away.',
+        ];
 
-    const statusSequences = [
-      ['Scanning completed operations', 'Filtering completed work', 'Archiving 14 operations', 'Recording to the Ledger'],
-      ['Connecting to Slack', 'Reading #customer-success', 'Collecting evidence', 'Preparing executive summary'],
-      ['Locating operation', 'Verifying destination project', 'Updating dependencies', 'Recording to the Ledger'],
-      ['Retrieving previous board materials', 'Collecting Q3 metrics', 'Preparing operation', 'Recording to the Ledger'],
-      ['Creating Sprint 12', 'Composing operations', 'Balancing workload', 'Recording to the Ledger'],
-      ['Gathering completed operations', 'Collecting supporting evidence', 'Preparing executive briefing', 'Flagging decisions that need you'],
-    ];
+    const statusSequences = isPortuguese
+      ? [
+          ['Verificando operações concluídas', 'Filtrando o trabalho concluído', 'Arquivando 14 operações', 'Registrando no Ledger'],
+          ['Conectando ao Slack', 'Lendo #customer-success', 'Coletando evidências', 'Preparando resumo executivo'],
+          ['Localizando a operação', 'Verificando o projeto de destino', 'Atualizando dependências', 'Registrando no Ledger'],
+          ['Recuperando materiais anteriores do conselho', 'Coletando métricas do terceiro trimestre', 'Preparando a operação', 'Registrando no Ledger'],
+          ['Criando o Sprint 12', 'Compondo operações', 'Equilibrando a carga de trabalho', 'Registrando no Ledger'],
+          ['Reunindo operações concluídas', 'Coletando evidências de apoio', 'Preparando briefing executivo', 'Sinalizando decisões que precisam de você'],
+        ]
+      : [
+          ['Scanning completed operations', 'Filtering completed work', 'Archiving 14 operations', 'Recording to the Ledger'],
+          ['Connecting to Slack', 'Reading #customer-success', 'Collecting evidence', 'Preparing executive summary'],
+          ['Locating operation', 'Verifying destination project', 'Updating dependencies', 'Recording to the Ledger'],
+          ['Retrieving previous board materials', 'Collecting Q3 metrics', 'Preparing operation', 'Recording to the Ledger'],
+          ['Creating Sprint 12', 'Composing operations', 'Balancing workload', 'Recording to the Ledger'],
+          ['Gathering completed operations', 'Collecting supporting evidence', 'Preparing executive briefing', 'Flagging decisions that need you'],
+        ];
 
     if (prefersReducedMotion) {
       textEl.textContent = prompts[0];

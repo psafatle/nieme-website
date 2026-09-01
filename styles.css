@@ -546,9 +546,14 @@ footer{padding:0 8vw 48px;text-align:center;color:var(--muted);font-size:14px}
 .os-card-system-label{display:inline-flex;align-items:center;padding:4px 12px;border-radius:999px;background:rgba(123,77,255,.1);border:1px solid rgba(123,77,255,.2);color:#a991ff;font-size:10px;letter-spacing:.16em;text-transform:uppercase;width:fit-content}
 .os-card-name{font-size:clamp(18px,1.8vw,24px);font-weight:500;letter-spacing:-.04em;margin:4px 0 0;color:var(--text);line-height:1}
 .os-card-desc{font-size:15px;line-height:1.6;color:#b6bac8;margin:0}
+.os-substrate{max-width:1440px;margin:24px auto 0;padding:24px 28px;display:grid;grid-template-columns:minmax(180px,.45fr) minmax(0,1.55fr);gap:24px;align-items:start;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(123,77,255,.05),rgba(255,255,255,.015) 55%,transparent)}
+.os-substrate-label{color:#a991ff;font-size:10px;line-height:1.4;letter-spacing:.16em;text-transform:uppercase;padding-top:4px}
+.os-substrate-copy h3{font-size:20px;line-height:1.2;font-weight:500;letter-spacing:-.03em;color:var(--text);margin:0 0 8px}
+.os-substrate-copy p{font-size:15px;line-height:1.6;color:#b6bac8;margin:0;max-width:920px}
+.os-substrate code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;font-size:.92em;color:#c4b0ff;letter-spacing:-.02em}
 .os-swap{font-size:17px;color:#c6c8d3;max-width:920px;margin:24px 0 0;font-style:italic}
 @media(max-width:1024px){.os-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.os-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.os-grid{grid-template-columns:1fr}.os-substrate{grid-template-columns:1fr;gap:10px;padding:20px 18px}}
 
 /* #7 — Orbital: text-on-path style */
 .runtime-flow-text{font-size:11px;fill:color-mix(in srgb,var(--purple) 65%,transparent);letter-spacing:.06em;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}
